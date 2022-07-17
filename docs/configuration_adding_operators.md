@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Adding Operators
-parent: Configuration
+parent: Customization
 nav_order: 1
 ---
 
