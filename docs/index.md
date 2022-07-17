@@ -1,3 +1,9 @@
+---
+layout: default
+title: Weclome
+nav_order: 1
+---
+
 ## Welcome
 
 Welcome to the playground, feel free to explore the content.
