@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Weclome
+title: Welcome
 nav_order: 1
 ---
 
