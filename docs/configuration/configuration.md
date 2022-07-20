@@ -67,3 +67,13 @@ See chapter [Function Dictionary](../customization/function_dictionary.html) for
 
 The default implementation is the _MapBasedFunctionDictionary_, which stores all variables in a
 **case-insensitive** _Map_.
+
+### Implicit Multiplication
+
+Implicit multiplication automatically adds in expression like "(a+b)(b+c)" the missing
+multiplication operator, so that the expression reads "(a+b) * (b+c)".
+
+By default, implicit multiplication is enabled. It can be disabled with this configuration
+parameter.
+
+### Math Context
