@@ -6,7 +6,8 @@ nav_order: 1
 
 # EvalEx - Java Expression Evaluator
 
-EvalEx is a handy expression evaluator for Java, that allows to evaluate expressions.
+EvalEx is a handy expression evaluator for Java, that allows to parse and evaluate expression
+strings.
 
 Key Features:
 

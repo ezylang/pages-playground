@@ -40,7 +40,7 @@ function is defined for this character.
 
 ### Data Accessor
 
-The Data Accessor is resposible for storing and retrieving variable values.
+The Data Accessor is responsible for storing and retrieving variable values.
 
 See chapter [Data Access](../customization/data_access.html) for details.
 
@@ -77,3 +77,44 @@ By default, implicit multiplication is enabled. It can be disabled with this con
 parameter.
 
 ### Math Context
+
+The math context is used throughout all operations and functions. The default has a precision of 8
+and a rounding mode of _HALF_EVEN_.
+
+See chapter [Precision, Scale and Rounding](../concepts/rounding.html) for details.
+
+### Operator Dictionary
+
+The operator dictionary is used to look up the operators that are used in an expression.
+
+See chapter [Operator Dictionary](../customization/operator_dictionary.html) for details.
+
+The default implementation is the _MapBasedOperatorDictionary_, which stores all variables in a
+**case-insensitive** _Map_.
+
+### Power Of Precedence
+
+In mathematics, there is no general rule which precedence the power-of operator has.
+Consider the expression "-2^2". The expression can have two different results, depending on the
+precedence:
+
+- If the precedence is lower than the unary minus, the result will be 4 (-2 * -2).
+- If the precedence is higher than the unary minus, the result will be -4 -(2 * 2).
+
+By default, EvalEx uses a lower precedence. you can configure to use a higher precedence by
+specifying it here, or by using a predefined constant:
+
+```java
+ExpressionConfiguration configuration = ExpressionConfiguration.builder()
+    .powerOfPrecedence(OperatorIfc.OPERATOR_PRECEDENCE_POWER_HIGHER)
+    .build();
+
+// will now result in -4, imstead of 4:
+Expression expression = new Expression("-2^2", configuration);
+```
+
+### Structures Allowed
+
+Specifies if the structure separator ('.') operator is allowed (default is true). If set to false,
+the expression will throw a _ParseException_, if the a '.' is encountered in the expression and also
+no operator or function is defined for this character.

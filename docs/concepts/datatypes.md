@@ -2,7 +2,7 @@
 layout: default
 title: Data types
 parent: Concepts
-nav_order: 1
+nav_order: 2
 ---
 
 ## Data Types

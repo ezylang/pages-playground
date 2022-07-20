@@ -2,7 +2,7 @@
 layout: default
 title: Precision, Scale and Rounding
 parent: Concepts
-nav_order: 2
+nav_order: 3
 ---
 
 ## Precision, Scale and Rounding
@@ -56,11 +56,11 @@ Precision and rounding mode are configured through the _ExpressionConfiguration_
 the _java.math.MathContext_:
 
 ```java
-    // set precision to 32 and rounding mode to HALF_UP
-    ExpressionConfiguration configuration =
-        ExpressionConfiguration.builder()
-            .mathContext(new MathContext(32, RoundingMode.HALF_UP))
-            .build();
+// set precision to 32 and rounding mode to HALF_UP
+ExpressionConfiguration configuration =
+    ExpressionConfiguration.builder()
+        .mathContext(new MathContext(32, RoundingMode.HALF_UP))
+        .build();
 ```
 
 Automatic scaling is disabled by default. When enabled, EvalEx will round all input variables,
