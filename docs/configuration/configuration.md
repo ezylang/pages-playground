@@ -1,7 +1,7 @@
 ---
 layout: default
 title: Configuration
-nav_order: 2
+nav_order: 3
 ---
 
 ## Configuration
@@ -45,12 +45,13 @@ See chapter [Data Accessor](data_accessor.html) for details.
 ### Decimal Places Rounding
 
 Specifies the amount of decimal places to round to in each operation or function.
-See chapter [Precision, Scale and Rounding](rounding.html) for details.
+See chapter [Precision, Scale and Rounding](/concepts/rounding.html) for details.
 
 ### Default Constants
 
 Specifies the default constants that can be used i every expression as a _Map_ with the constant
 name and _EvaluationValue_ as value.
-See the reference chapter for a list: [Default Constants](reference.html#)
+See the reference chapter for a list: [Default Constants](/references/references.html#default-constants)
 
+### Function Dictionary
 

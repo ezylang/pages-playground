@@ -1,6 +1,6 @@
 ---
 layout: default
-title: Concepts
-nav_order: 2
+title: Customization
+nav_order: 4
 has_children: true
 ---
