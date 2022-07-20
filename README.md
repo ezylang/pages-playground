@@ -1,11 +1,12 @@
 # EvalEx Documentation
 
-For documentation, EvalEx uses GitHub pages, which uses Jekyll to transform markdown to a static
-HTML site.
+For documentation, EvalEx uses GitHub Pages, which uses Jekyll to transform markdown to static HTML.
 
-The site HTML is generated, whenever the 
+The site HTML is generated, whenever something is committed to the main branch.
 
-For the layout, the JustTheDocs template is used, which supports a lot of good things like sidebar
+Jekyll will then transform all files it finds in the "docs" directory.
+
+For the layout, the JustTheDocs template is used, which supports a lot of good things like a sidebar
 menu, page hierarchy and searching.
 
 ## EvalEx documentation home:
