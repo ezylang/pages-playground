@@ -64,7 +64,7 @@ object.
 ### ARRAY
 
 Arrays are stored internally as a _java.util.List&lt;EvaluationValue&gt;_. When passed as a
-variable, the list will be iterated and each entry will be converted to the data type conversion
+variable, the list will be iterated and each entry will be converted using the data type conversion
 rules.
 So, for example, a list of double values will be converted to a list of _EvaluationValue_
 objects of type _NUMBER_, with an internal BigDecimal representation.
@@ -100,10 +100,9 @@ Arrays can also hold _STRUCTURE_ elements as entries.
 
 ### STRUCTURE
 
-Structures are stored internally as a _java.util.Map&lt;String, EvaluationValue&gt;. When passed as
-a variable, the map entries will be iterated and each entry value will be converted to the data
-type
-conversion rules.
+Structures are stored internally as a _java.util.Map&lt;String, EvaluationValue&gt;_. When passed as
+a variable, the map entries will be iterated and each entry value will be converted using the data
+type conversion rules.
 
 Structures can hold other structures, which can form a tree like data structure.
 
@@ -134,7 +133,8 @@ System.out.println(result); // prints 44.85
 
 A string expression is converted into an abstract syntax tree (AST), which represents the expression
 structure and evaluation order. When an expression is evaluated, the evaluation starts at the lowest
-tree (leaf) node and works its way up to the root node, which the holds the expression result value.
+tree (leaf) node and works its way up to the root node, which then gives the expression result
+value.
 
 The internal object for such a node is the _com.ezylang.evalex.parser.ASTNode_. It contains the
 token associated to the node (e.g. a multiplication operator, or a function name) and has zero or
@@ -143,8 +143,8 @@ more children (the operator or function parameters).
 By passing an _ASTNode_ and its substructure as a variable, this will be handled as a subtree and
 will be evaluated when the node is evaluated.
 
-With this, a _lazy evaluation_ is possible, only evaluating a node when it is desired (see the _
-IF()_ function for an example. Also, it allows the creation of sub-expressions.
+With this, a _lazy evaluation_ is possible, only evaluating a node when it is desired (see the 
+_IF()_ function for an example. Also, it allows the creation of sub-expressions.
 
 The _Expression_ object has a method to create such sub-expressions, returning the root node of an
 arbitrary string expression:

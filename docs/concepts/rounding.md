@@ -7,11 +7,14 @@ nav_order: 3
 
 ## Precision, Scale and Rounding
 
-EvalEx uses _java.math.BigDecimal_ values for (most) calculations and for internal storage of values
-and variables.
+EvalEx uses _java.math.BigDecimal_ values for (most) calculations and for internal storage of number
+values and variables.
 
 In contrast to float or double values, which are stored in floating-point arithmetic, BigDecimal
 values are stored as signed decimal number of arbitrary precision with an associated scale.
+
+This makes BigDecimal a perfect choice in applications, where the precise decimal values are needed,
+e.g. in financial systems.
 
 ### Precision
 

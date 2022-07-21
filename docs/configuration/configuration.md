@@ -9,9 +9,8 @@ nav_order: 3
 EvalEx can be configured through an _ExpressionConfiguration_ object, which can be passed as a
 parameter to the _Expression_ constructor.
 
-> **Warning:** The _ExpressionConfiguration_ is not thread safe, different expressions in different
-> threads should
-> not use the same configuration object.
+> **Warning:** Be careful when using the same configuration object for different expressions.
+> When using the _MapBasedDataAccessor_, they will share the same variable values.
 
 Example usage, showing all default configuration values:
 
@@ -35,8 +34,8 @@ Expression expression = new Expression("2.128 + a", configuration);
 ### Arrays allowed
 
 Specifies if the array index function is allowed (default is true). If set to false, the expression
-will throw a _ParseException_, if the a '[' is encountered in the expression and also no operator or
-function is defined for this character.
+will throw a _ParseException_, if there is a '[' is encountered in the expression and also no
+operator or function is defined for this character.
 
 ### Data Accessor
 
@@ -54,10 +53,10 @@ See chapter [Precision, Scale and Rounding](../concepts/rounding.html) for detai
 
 ### Default Constants
 
-Specifies the default constants that can be used i every expression as a _Map_ with the constant
+Specifies the default constants that can be used in every expression as a _Map_ with the constant
 name and _EvaluationValue_ as value.
 See the reference chapter for a
-list: [Default Constants](../references/references.html#default-constants)
+list: [Default Constants](../references/constants.html)
 
 ### Function Dictionary
 
@@ -78,7 +77,7 @@ parameter.
 
 ### Math Context
 
-The math context is used throughout all operations and functions. The default has a precision of 8
+The math context is used throughout all operations and functions. The default has a precision of 68
 and a rounding mode of _HALF_EVEN_.
 
 See chapter [Precision, Scale and Rounding](../concepts/rounding.html) for details.
@@ -101,7 +100,7 @@ precedence:
 - If the precedence is lower than the unary minus, the result will be 4 (-2 * -2).
 - If the precedence is higher than the unary minus, the result will be -4 -(2 * 2).
 
-By default, EvalEx uses a lower precedence. you can configure to use a higher precedence by
+By default, EvalEx uses a lower precedence. You can configure to use a higher precedence by
 specifying it here, or by using a predefined constant:
 
 ```java

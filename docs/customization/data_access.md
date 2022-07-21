@@ -8,7 +8,7 @@ nav_order: 5
 ## Data Access
 
 By default, EvalEx has its own storage for variable values, the _MapBasedDataAccessor_.
-It stores and retrieves the variables in a case-insensitive _TeeMap_.
+It stores and retrieves the variables in a case-insensitive _TreeMap_.
 
 You can easily define your own data access interface, by defining a class that implements the
 _DataAccessorInterface_:
@@ -39,11 +39,11 @@ Only two methods need to be implemented:
 - getData(String variable) - should return a value for a variable name.
 - setData(String variable, EvaluationValue value) - set a variable value.
 
-The _setData()_ method is only called when a variable is added to the expression, e.g. using the _
-with()_ method. You may leave the implementation empty, if you do want to suppot this.
+The _setData()_ method is only called when a variable is added to the expression, e.g. using the
+_with()_ method. You may leave the implementation empty, if you do want to support this.
 
 > NOTE: The variable names that are passed to the methods are case-sensitive, just like they were
-> entered i the expression.
+> entered in the expression.
 
 The custom data accessor can then be specified in the expression configuration:
 

@@ -49,8 +49,8 @@ EvaluationValue result = expression.evaluate();
 System.out.println(result.getNumberValue()); // prints 1.25
 ```
 
-The evaluation will return an _EvaluationValue_ object. Depending on the expression, the _
-EvaluationValue_ will be of one of this types:
+The evaluation will return an _EvaluationValue_ object. Depending on the expression, the
+_EvaluationValue_ will be of one of the types:
 
 - NUMBER - If the expression resulted in a number.
 - STRING - If the expression resulted in a string.
@@ -58,7 +58,7 @@ EvaluationValue_ will be of one of this types:
 - ARRAY - If the expression resulted in an array.
 - STRUCTURE - If the expression resulted in a structure.
 
-The _EvaluationValue_ has methods to check and retrieve the desired value in a predefined data type.
+The _EvaluationValue_ has methods to check and retrieve/convert the evaluation value.
 
 See chapter [Data Types](datatypes.html) for details on the different data types.
 
@@ -76,7 +76,7 @@ the defined data accessor.
 by default, EvalEx uses the _MapBasedDataAccessor_, which stores the variable values in a
 case-insensitive map.
 
-Prior to evaluation, the variable values can be set by setting the one by one, using the _with()_
+Prior to evaluation, the variable values can be set by setting them one by one, using the _with()_
 and _and()_ methods.
 (Both methods are the same, the name difference is just for convenience).
 
@@ -91,7 +91,8 @@ EvaluationValue result = expression
 System.out.println(result.getNumberValue()); // prints 6.00
 ```
 
-Also, the variable values can be set by defining a map with names and values and then passing it to
+Alternatively, the variable values can be set by defining a map with names and values and then
+passing it to
 the _withValues()_ method:
 
 ```java
@@ -106,7 +107,8 @@ EvaluationValue result = expression.withValues(values).evaluate();
 System.out.println(result.getNumberValue()); // prints 6.00
 ```
 
-The data conversion of the passed values will be performed through the created _EvaluationObject_.
+The data conversion of the passed values will automatically be performed through the created
+_EvaluationObject_.
 
 See chapter [Data Types](datatypes.html) for details on the conversion.
 
@@ -121,16 +123,10 @@ In EvalEx, there are two general exceptions:
 - A _ParseException_ is thrown, when the expression could not be parsed.
 - An _EvaluationException_ is thrown, when the expression could be parsed, but not evaluated.
 
-If adequate, both exceptions report the following details:
+If possible, both exceptions report the following details:
+
 - Start Position of the error (character position, starting with 1).
 - End Position of the error (character position, starting with 1).
 - The Token string, usually the operator, function, variable or literal causing the error.
 - The error message.
 
-```java
-// set precision to 32 and rounding mode to HALF_UP
-ExpressionConfiguration configuration =
-    ExpressionConfiguration.builder()
-        .mathContext(new MathContext(32, RoundingMode.HALF_UP))
-        .build();
-```
